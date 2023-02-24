@@ -23,6 +23,7 @@ export class UserRegistrationService {
     );
   }
 
+  // user login
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'login', userDetails).pipe(
@@ -30,6 +31,7 @@ export class UserRegistrationService {
     );
   }
 
+  // get all movies
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
@@ -41,6 +43,7 @@ export class UserRegistrationService {
     );
   }
 
+  // get one movie
   getOneMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + '/movies/:Title', {headers: new HttpHeaders(
@@ -52,6 +55,8 @@ export class UserRegistrationService {
     );
   }
 
+
+  // get director name
   getDirector(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + '/movies/directors/:Name', {headers: new HttpHeaders(
@@ -63,6 +68,8 @@ export class UserRegistrationService {
     );
   }
 
+
+  // get genre
   getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + '/movies/genres/:Name', {headers: new HttpHeaders(
@@ -75,6 +82,7 @@ export class UserRegistrationService {
   }
 
 
+  // get a single user info 
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + '/users/:Username', {headers: new HttpHeaders(
@@ -86,6 +94,8 @@ export class UserRegistrationService {
     );
   }
 
+
+  // get list of favorite movies for selected user
   getFavoriteMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + '/users/:Username/movies/:MovieID', {headers: new HttpHeaders(
@@ -97,6 +107,8 @@ export class UserRegistrationService {
     );
   }
 
+
+  // update user info 
   editUser(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.put(apiUrl + '/users/:Username', {headers: new HttpHeaders(
@@ -108,6 +120,8 @@ export class UserRegistrationService {
     );
   }
 
+
+  // delete user 
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + '/users/:Username', {headers: new HttpHeaders(
@@ -119,6 +133,8 @@ export class UserRegistrationService {
     );
   }
 
+
+  // delete favorite movie from user 
   deleteFavoriteMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + '/users/:Username/movies/:MovieID', {headers: new HttpHeaders(
@@ -129,7 +145,7 @@ export class UserRegistrationService {
       catchError(this.handleError)
     );
   }
-  
+
 
   
 // Non-typed response extraction

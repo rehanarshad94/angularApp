@@ -9,11 +9,11 @@ const apiUrl = 'https://my-movie-flix.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
-// export class UserRegistrationService {
-  export class FetchApiDataService {
+export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
  // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {
+    this.http = http;
     }
 
  // Making the api call for the user registration endpoint
@@ -43,6 +43,9 @@ const apiUrl = 'https://my-movie-flix.herokuapp.com/';
       catchError(this.handleError)
     );
   }
+
+  
+
 
   // get one movie
   getOneMovie(): Observable<any> {

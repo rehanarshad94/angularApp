@@ -30,7 +30,7 @@ export class FetchApiDataService {
   // user login
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post<Response>(apiUrl + 'login?Username=rehan&Password=password', userDetails).pipe(
+    return this.http.post<Response>(apiUrl + `login?Username=${userDetails.Username}&Password=${userDetails.Password}`, userDetails).pipe(
     catchError(this.handleError)
     );
   }
@@ -38,7 +38,7 @@ export class FetchApiDataService {
   // get all movies
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get<Response>(apiUrl + 'movies', {headers: new HttpHeaders(
+    return this.http.get<Response>(apiUrl + 'movies?Username=rehan&Password=password', {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(

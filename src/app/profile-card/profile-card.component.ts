@@ -14,6 +14,12 @@ export class ProfileCardComponent implements OnInit{
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };//Decorator
 
+  /**
+   * fetches data, shows snackbar and connects the router
+   * @param fetchApiDataService 
+   * @param snackBar 
+   * @param router 
+   */
   constructor(
     public fetchApiDataService: FetchApiDataService,
     public snackBar: MatSnackBar,

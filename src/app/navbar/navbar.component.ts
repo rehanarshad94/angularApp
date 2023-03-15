@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
+  /**
+   * renders navbar
+   * @param router 
+   */
   constructor(public router: Router) {}
 
   
